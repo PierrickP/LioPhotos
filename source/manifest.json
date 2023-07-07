@@ -1,0 +1,31 @@
+{
+  "name": "LioPhotos",
+  "version": "1.0.0",
+  "description": "",
+  "homepage_url": "https://app.lumys-scolaire.photo/",
+  "manifest_version": 3,
+  "minimum_chrome_version": "100",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "liophotos@pierrickpn.github.io",
+      "strict_min_version": "100.0"
+    }
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["https://app.lumys-scolaire.photo/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://app.lumys-scolaire.photo/*"],
+      "js": ["lumysContent.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["http://www.iconea-pro.com/*"],
+      "js": ["iconeaContent.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
